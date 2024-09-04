@@ -7,12 +7,14 @@ import styles from "./style.module.scss";
 import { useReviewContext } from '../../providers/ReviewContext';
 import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
+import { ModalReview } from '../../components/Modal/modalReview';
 
 
 
 export const AboutMoviePage = () => {
   const {user, userLogout} = useUserContext()
-  const {movieImg} = useReviewContext()
+  const {movieImg, createReview, modalReview, setModalReview, listReview} = useReviewContext()
+
 
   useEffect(() => {
     window.scrollTo(0, 0); 
@@ -48,38 +50,23 @@ export const AboutMoviePage = () => {
         <section>
           <div className={styles.divReview}>
             <h1>Avaliações</h1>
-            <Button><span className="material-symbols-outlined">star</span>Avaliar</Button>
+            <Button onClick={() => setModalReview(true)}><span className="material-symbols-outlined">star</span>Avaliar</Button>
           </div>
+          {modalReview ? <ModalReview movieImg={movieImg} /> : null}
 
           <div className={styles.listReview}>
             <ul className={styles.ulContainer}>
-              <li className={styles.liBox}>
+              {listReview.map((review) => (
+              <li key={review.id} className={styles.liBox}>
                 <h3>J</h3>
                 <span className={styles.rating}>
                 <span className="material-symbols-outlined" aria-hidden="true">star</span>
-                <span>5.0</span>
+                <span>{review.score}</span>
                 </span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat hic accusamus corporis, sit iste, aperiam saepe quidem repellat magnam repudiandae debitis quaerat alias, itaque unde sint animi eaque pariatur cum.</p>
+                <p>{review.description}</p>
                 <h4>José da Silva</h4>
               </li>
-              <li className={styles.liBox}>
-                <h3>J</h3>
-                <span className={styles.rating}>
-                <span className="material-symbols-outlined" aria-hidden="true">star</span>
-                <span>5.0</span>
-                </span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat hic accusamus corporis, sit iste, aperiam saepe quidem repellat magnam repudiandae debitis quaerat alias, itaque unde sint animi eaque pariatur cum.</p>
-                <h4>José da Silva</h4>
-              </li>
-              <li className={styles.liBox}>
-                <h3>J</h3>
-                <span className={styles.rating}>
-                <span className="material-symbols-outlined" aria-hidden="true">star</span>
-                <span>5.0</span>
-                </span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat hic accusamus corporis, sit iste, aperiam saepe quidem repellat magnam repudiandae debitis quaerat alias, itaque unde sint animi eaque pariatur cum.</p>
-                <h4>José da Silva</h4>
-              </li>
+              ))}
             </ul>
           </div>
 

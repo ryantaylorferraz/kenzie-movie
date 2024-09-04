@@ -28,11 +28,12 @@
         padding-bottom: 5.3rem;
         gap: 2rem;
         .divInput {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, auto);
+            display: flex;
+            flex-direction: column;
             gap: 16px;
-            input {
+            .divEmail, .divSenha {
+                display: flex;
+                gap: 1rem;
                 width: 100%;
             }
         }
@@ -45,8 +46,14 @@
 }
 
 @media (max-width: 600px) {
-    .divInput {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+    .sectionContainer {
+        padding-inline: 1rem;
+        form {
+            padding-inline: 1rem;
+
+        }
+    }
+    .divEmail, .divSenha {
+        flex-wrap: wrap;
     }
 }

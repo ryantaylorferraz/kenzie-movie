@@ -36,15 +36,19 @@ export const RegisterPage = () => {
         <section className={styles.sectionContainer}>
           <div className={styles.divBox}>
             <h1>Cadastro</h1>
-            <Link to="/"><button>  <FaArrowLeft /> Voltar</button></Link>
+            <Link to="/"><button><FaArrowLeft /> Voltar</button></Link>
           </div>
           <p>Preencha os campos para cadastrar-se</p>
           <form onSubmit={handleSubmit(submit)}>
               <div className={styles.divInput}>
-                  <Input type="text" placeholder="Nome" {...register("name")} error={errors.name} />
-                  <Input type="email" placeholder="Email" {...register("email")} error={errors.email} />
-                  <Input type="password" placeholder="Senha" {...register("password")} error={errors.password} />
-                  <Input type="text" placeholder="Confirmar Senha" {...register("confirmPassword")} error={errors.confirmPassword} />
+                  <div className={styles.divEmail}>
+                    <Input type="text" placeholder="Nome" {...register("name")} error={errors.name} />
+                    <Input type="email" placeholder="Email" {...register("email")} error={errors.email} />
+                  </div>
+                  <div className={styles.divSenha}>
+                    <Input type="password" placeholder="Senha" {...register("password")} error={errors.password} />
+                    <Input type="text" placeholder="Confirmar Senha" {...register("confirmPassword")} error={errors.confirmPassword} />
+                  </div>
               </div>
               <div className={styles.divBtn}><Button className={styles.btnCadastrar} type="submit" >Cadastrar-se</Button></div>
           </form>

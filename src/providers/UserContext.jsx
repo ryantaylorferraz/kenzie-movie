@@ -9,7 +9,6 @@ export const UserProvider = ({children}) => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location);
     
 
     useEffect(() => {

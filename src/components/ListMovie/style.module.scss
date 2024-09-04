@@ -2,12 +2,15 @@
     width: 100%;
     max-width: 1100px;
     height: 100%;
+    cursor: pointer;
+
     .divBox {
         display: flex;
         flex-direction: column;
         gap: .8rem;
         img {
-            width: 21rem;
+            width: 20rem;
+            height: 11rem;
             border-radius: 1.5rem;
             object-fit: cover;
         }

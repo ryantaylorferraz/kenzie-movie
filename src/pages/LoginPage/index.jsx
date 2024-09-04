@@ -26,7 +26,7 @@ export const LoginPage = () => {
     <>
     <section className={styles.container}>
         <Header logo={movieImage} text={"Cadastre-se"} button={"Entrar"} link="/registerpage"/>
-        <main>
+        <main className={styles.mainContainer}>
             <section className={styles.sectionContainer}>
                 <h1 className={styles.title}>Login</h1>
                 <form onSubmit={handleSubmit(submit)}>
