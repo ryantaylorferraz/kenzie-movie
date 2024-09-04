@@ -1,0 +1,17 @@
+.inputBox {
+    background-color: var(--color-Lightgray1);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 1rem;
+    width: 100%;
+    padding-left: .6rem;
+    height: 2.5rem;
+    box-sizing: border-box;
+    color: var(--color-white);
+    letter-spacing: 2px;
+}
+
+.messageError {
+    color: red;
+    font-size: 0.7rem;
+  }

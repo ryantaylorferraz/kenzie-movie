@@ -1,0 +1,32 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 2rem 0rem;
+    width: 100%;
+    max-width: 1100px;
+
+    img {
+        height: 1.6rem;
+
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        .title {
+            &:hover {
+                color: var(--color-yellow);
+            }
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    div {
+        .title {
+            display: none;
+        }
+    }
+}

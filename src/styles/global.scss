@@ -1,0 +1,38 @@
+:root {
+    --font-primary: "Poppins", system-ui;
+    --font-secondary: "Inter", sans-serif;
+
+    --color-black: #000000;
+    --color-white: #FFF;
+    --color-Lightgray1: #3D3D3D;
+    --color-Lightgray2: #171717;
+    --color-yellow: #FFBB38;
+    --color-border: #252525;
+
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: #171717;
+    color: var(--color-white);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+header, main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#root {
+    width: 100%;
+}
+
+@media(max-width: 600px) {
+    body {
+        padding-inline: 1rem;
+    }
+}

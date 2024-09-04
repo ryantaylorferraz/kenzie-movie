@@ -1,0 +1,52 @@
+
+.sectionContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    .divBox {
+        display: flex;
+        justify-content: space-between;
+        padding-block: 2rem;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        button {
+            color: var(--color-yellow);
+
+        }
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;   
+        justify-content: space-between; 
+        padding-top: 2rem;
+        padding-bottom: 5.3rem;
+        gap: 2rem;
+        .divInput {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 16px;
+            input {
+                width: 100%;
+            }
+        }
+        .divBtn {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .divInput {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
