@@ -24,7 +24,11 @@
 }
 
 @media(max-width: 500px) {
+    .headerContainer {
+        padding-inline: 1rem;
+    }
     div {
+        
         .title {
             display: none;
         }

@@ -7,7 +7,7 @@
         flex-direction: column;
         gap: .8rem;
         img {
-            width: 100%;
+            width: 21rem;
             border-radius: 1.5rem;
             object-fit: cover;
         }
@@ -15,12 +15,13 @@
         .divMovie {
             display: flex;
             justify-content: space-between;
-
+            
             .divSpan {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-around;
+                justify-content: end;
                 text-align: end;
+                gap: clamp(0.2rem, -0.108rem + 1.231vw, 1rem);
                 div {
                     display: flex;
                     align-items: center;
@@ -37,7 +38,42 @@
             display: flex;
             flex-direction: column;
             gap: .8rem;
+            h3 {
+                font-size: 1.3rem;
+            }
             
+            .divInfo {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                .btnInfo {
+                    background-color: rgb(53, 153, 53);
+                    border-radius: 1rem;
+                    color: var(--color-black);
+                    font-weight: 800;
+                    font-size: 1.0625rem;
+                    padding: .4rem clamp(0.5rem, 0.2rem + 1.6vw, 1.5rem);
+                    font-family: var(--font-primary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: 0.3s;
+                    &:hover {
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 800px) {
+    .divMovie {
+        flex-direction: column;
+        gap: .5rem;
+        .divSpan {
+            align-items: start;
+            gap: .1rem;
         }
     }
 }

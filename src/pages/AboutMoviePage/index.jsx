@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Header } from '../../components/Header'
 import movieImage from "../../assets/imgLogo.png";
 import { useUserContext } from '../../providers/UserContext';
@@ -6,32 +6,34 @@ import { Link } from 'react-router-dom';
 import styles from "./style.module.scss";
 import { useReviewContext } from '../../providers/ReviewContext';
 import { Button } from '../../components/Button';
+import { Footer } from '../../components/Footer';
 
 
 
 export const AboutMoviePage = () => {
   const {user, userLogout} = useUserContext()
   const {movieImg} = useReviewContext()
-  console.log(movieImg);
-  
-  console.log(user)
+
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+}, []);
 
   return (
     <>
       <section className={styles.container} >
         {
           movieImg && (
-            <img src={movieImg[0].image} alt="" className={styles.backgroundImage} />
+            <img src={movieImg.image} alt="" className={styles.backgroundImage} />
           )
         }
         <Header logo={movieImage} text={user} button={<Link to="/" onClick={(e) => { e.preventDefault(); userLogout(); }}>Sair</Link>} />
         <div className={styles.containerBox}>
           <div className={styles.divName}>
-            <Button>{movieImg[0].type}</Button>
-            <h1 className={styles.textName}>{movieImg[0].name}</h1>
+            <Button>{movieImg.type}</Button>
+            <h1 className={styles.textName}>{movieImg.name}</h1>
           </div>
           <div className={styles.divStar}>
-          <span>{movieImg[0].duration}m</span>
+          <span>{movieImg.duration}m</span>
           <span className={styles.rating}>
                 <span className="material-symbols-outlined" aria-hidden="true">star</span>
                 <span>5.0</span>
@@ -41,7 +43,7 @@ export const AboutMoviePage = () => {
         </div>
       </section>
       <main className={styles.mainContainer}>
-        <p className={styles.paragraph}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam facere veniam, accusamus voluptatibus fugit totam possimus, nesciunt ipsa iste ipsam fugiat! Veritatis recusandae saepe eaque vel debitis, expedita quam consequuntur.</p>
+        <p className={styles.paragraph}>"A América é uma sombra sinistra e cinzenta de si mesma após uma catástrofe. Um homem e seu filho vagam por este mundo pós-apocalíptico, tentando manter vivo o sonho da civilização. Eles viajam em direção ao mar sobrevivendo da melhor maneira possível, tentando evitar gangues de humanos selvagens que querem transformá-los em escravos, ou pior."</p>
 
         <section>
           <div className={styles.divReview}>
@@ -83,6 +85,7 @@ export const AboutMoviePage = () => {
 
         </section>
       </main>
+      <Footer />
 
     </>
   )

@@ -12,14 +12,10 @@ import { useReviewContext } from "../../providers/ReviewContext";
 
 export const MoviePage = () => {
   const {listProduct} = useMovieContext()
-  const {movieImg, setMovieImg} = useReviewContext()
+  const {movieImg, handleMovieClick} = useReviewContext()
   const {user, userLogout} = useUserContext()
-  console.log(user);
   
-  const handleMovieClick = (image) => {
-    setMovieImg(image)
-    localStorage.setItem('@movieImg:', JSON.stringify(image));
-};
+
 
 useEffect(() => {
 }, [movieImg]);
@@ -37,13 +33,16 @@ useEffect(() => {
 
       )}
       <main className={styles.container}>
-        <section className={styles.divMovie} onClick={() => handleMovieClick(filterMovie)}>
+        <section className={styles.divMovie} onClick={() => handleMovieClick(filterMovie[0])}>
           {filterMovie.length > 0 ? (
             <>
           <img src={filterMovie[0].image} />
           <div className={styles.divAboutMovie}>
             <div className={styles.divName}>
-            <Link to="/aboutmovie"><Button>{filterMovie[0].type}</Button></Link>
+              <div className={styles.divInfo}>
+                <Button>{filterMovie[0].type}</Button>
+                {user && user.length > 0 ? <Link to="/aboutmovie"><button className={styles.btnInfo}>Info</button></Link> : null}
+              </div>
               <h1>{filterMovie[0].name}</h1>
             </div>
             <div>
