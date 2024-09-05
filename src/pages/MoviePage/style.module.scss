@@ -61,6 +61,27 @@
         overflow-x: auto;
     }
 }
+
+.divAbout {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 1rem;
+    align-items: end;
+}
+
+.divReview {
+display: flex;
+justify-content: end;
+align-items: center;
+    span:first-child {
+        color: var(--color-yellow);
+    }
+    p {
+        font-size: 2rem;
+    }
+}
+
 @media(max-width: 500px) {
     .divMovie {
         padding-inline: 1rem;

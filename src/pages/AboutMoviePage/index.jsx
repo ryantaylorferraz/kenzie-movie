@@ -14,6 +14,13 @@ import { ModalReview } from '../../components/Modal/modalReview';
 export const AboutMoviePage = () => {
   const {user, userLogout} = useUserContext()
   const {movieImg, createReview, modalReview, setModalReview, listReview} = useReviewContext()
+  
+  const primeiraLetras = listReview.map(review => {
+    return review.name ? review.name[0] : '';
+});
+
+console.log(primeiraLetras);
+
 
 
   useEffect(() => {
@@ -58,13 +65,13 @@ export const AboutMoviePage = () => {
             <ul className={styles.ulContainer}>
               {listReview.map((review) => (
               <li key={review.id} className={styles.liBox}>
-                <h3>J</h3>
+                <h3>{review.name ? review.name[0] : ''}</h3>
                 <span className={styles.rating}>
                 <span className="material-symbols-outlined" aria-hidden="true">star</span>
                 <span>{review.score}</span>
                 </span>
                 <p>{review.description}</p>
-                <h4>José da Silva</h4>
+                <h4>{review.name}</h4>
               </li>
               ))}
             </ul>

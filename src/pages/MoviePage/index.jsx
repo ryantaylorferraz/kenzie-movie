@@ -45,9 +45,9 @@ useEffect(() => {
               </div>
               <h1>{filterMovie[0].name}</h1>
             </div>
-            <div>
+            <div className={styles.divAbout}>
               <span>{filterMovie[0].duration}m</span>
-              <div>
+              <div className={styles.divReview}>
                 <span className="material-symbols-outlined">star</span>
                 <p>5.0</p>
               </div>

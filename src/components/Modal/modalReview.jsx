@@ -4,9 +4,13 @@ import { Input } from '../Form/Input'
 import { useForm } from 'react-hook-form'
 import { Button } from '../Button'
 import { useReviewContext } from '../../providers/ReviewContext'
+import { useUserContext } from '../../providers/UserContext'
 
 export const ModalReview = ({movieImg}) => {
     const {modalReview, setModalReview, createReview} = useReviewContext() 
+    const {user} = useUserContext()
+    console.log(user);
+    
     const {register, handleSubmit} = useForm()
     const userId = localStorage.getItem("@USERID:")
 
@@ -16,8 +20,11 @@ export const ModalReview = ({movieImg}) => {
             movieId: movieImg.id,
             userId: userId,
             score: score,
-            description: description
+            description: description,
+            name: user
         }
+        console.log(newReview);
+        
         setModalReview(false)
         createReview(newReview)
     }
